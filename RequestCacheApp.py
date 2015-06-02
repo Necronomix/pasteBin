@@ -94,7 +94,7 @@ def build_json(data):
         fn = sanitise_to_filename(data[0][1])
         handle = open(CACHEPATH+"/"+fn,"w")
         handle.write('{')
-        handle.write('"username": "'+data[0][1]+'"')
+        handle.write('"username": "'+fn+'"')
         print("There are "+str(len(data))+" items")
         handle.write(',"events":[')
         for (i,(_, dbname, addr1, addr2, addr3, _, _, date_of_purchase, _, item, price, _)) in enumerate(data):
@@ -119,4 +119,4 @@ def build_json(data):
 
 if __name__ == '__main__':
     # TODO: Remember to set debug=False before deploying!
-    app.run(host="0.0.0.0",debug=True)
+    app.run(host="0.0.0.0",debug=False)
